@@ -49,6 +49,10 @@ def exam_region(source_code, region):
     elif region == 'PR':
         initial_tag = source_code_str.find('<div class="uf">PARANÁ</div>') + len('<div class="uf">PARANÁ</div>')
         final_tag = source_code_str.find('<div class="uf">RIO GRANDE DO SUL</div>') + len('<div class="uf">RIO GRANDE DO SUL</div>')
+    
+    elif region == 'RS':
+        initial_tag = source_code_str.find('<div class="uf">RIO GRANDE DO SUL</div>') + len('<div class="uf">RIO GRANDE DO SUL</div>')
+        final_tag = source_code_str.find('<div class="uf">SANTA CATARINA</div>') + len('<div class="uf">SANTA CATARINA</div>')
 
     elif region == 'SC':
         initial_tag = source_code_str.find('<div class="uf">SANTA CATARINA</div>') + len('<div class="uf">SANTA CATARINA</div>')
@@ -187,7 +191,7 @@ if __name__ == '__main__':
     # state = state1 + state2[1:]
 
     # Extract one state
-    state = exam_region(soup, 'SP')
+    state = exam_region(soup, 'RS')
 
     # Save as CSV
     df = pd.DataFrame(state)
